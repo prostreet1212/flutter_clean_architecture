@@ -1,4 +1,4 @@
-export 'src/services.dart';
+export 'src/api/services.dart';
 
 
 /*library module_data;
