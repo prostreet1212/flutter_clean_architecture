@@ -46,30 +46,90 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<MainBlocState>(
-        stream: context.read<MainBloc>().state,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            final state = snapshot.data;
-            return state!.map<Widget>(
-              loading: (_) => Scaffold(
-                appBar: AppBar(
-                  title: Text('Demo'),
-                ),
-                body: Center(
-                  child: Text('Initializing'),
-                ),
-              ),
-              loaded: (state) => Scaffold(
-                appBar: AppBar(
-                  title: Text('Demo'),
-                ),
-                body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Homework №12'),
+        centerTitle: true,
+      ),
+      body: StreamBuilder<MainBlocState>(
+          stream: context
+              .read<MainBloc>()
+              .state,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final state = snapshot.data;
+              return state!.map<Widget>(
+                  loading: (_) =>
+                      Center(
+                        child: Text('Initializing'),
+                      ),
+
+                  loaded: (state) =>
+                  /*Center(
                   child: Text(
                     '${state.hotelData[0].name}',
                     style: Theme.of(context).textTheme.headline4,
                   ),
-                ),
+                ),*/
+
+                  Padding(
+                    padding: EdgeInsets.all(8),
+                    child: ListView.separated(
+                      itemCount: state.hotelData.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          elevation: 3,
+                          shape:
+                          RoundedRectangleBorder(borderRadius: BorderRadius
+                              .circular(15)),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Stack(
+                              children: [
+                                Image.asset(
+                                  'assets/images/${state.hotelData[index].poster}',
+                                  fit: BoxFit.fitWidth,
+                                ),
+                                Positioned(
+                                    width: MediaQuery
+                                        .of(context)
+                                        .size
+                                        .width,
+                                    bottom: 0,
+                                    child: Container(
+                                      color: Colors.white,
+                                      height: 60,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 20, right: 40),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment
+                                              .spaceBetween,
+                                          children: [
+                                            Text(state.hotelData[index].name),
+                                            ElevatedButton(
+                                              child: Text('Подробнее'),
+                                              onPressed: () {
+                                              },
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ))
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) {
+                        return SizedBox(
+                          height: 8,
+                        );
+                      },
+                    ),
+                  ),
+
+
                 /*floatingActionButton: FloatingActionButton(
                   onPressed: () => context.read<MainBloc>().add(
                         MainBlocEvent.setUser(userId: state.userData.id + 1),
@@ -77,11 +137,12 @@ class MyHomePage extends StatelessWidget {
                   tooltip: 'Increment',
                   child: Icon(Icons.add),
                 ),*/
-              ),
-            );
-          } else {
-            return CircularProgressIndicator();
-          }
-        });
+
+              );
+            } else {
+              return CircularProgressIndicator();
+            }
+          }),
+    );
   }
 }
