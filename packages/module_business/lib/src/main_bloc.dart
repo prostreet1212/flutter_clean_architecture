@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:module_business/utils/utils.dart';
 import 'package:module_data/module_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:async';
@@ -7,19 +9,19 @@ import 'package:module_model/module_model.dart';
 part 'main_bloc.freezed.dart';
 
 class MainBloc {
-  final UserService userService;
+  final HotelService userService;
   final StreamController<MainBlocEvent> _eventsController = StreamController();
   final StreamController<MainBlocState> _stateController =
       StreamController.broadcast();
 
-  Stream<MainBlocState> get state=>_stateController.stream;
+  Stream<MainBlocState> get state => _stateController.stream;
 
   MainBloc({required this.userService}) {
     _eventsController.stream.listen((event) {
       event.map<void>(
         init: (_) async {
           _stateController.add(
-            MainBlocState.loading(),
+            const MainBlocState.loading(),
           );
           _stateController.add(
             MainBlocState.loaded(
@@ -27,11 +29,11 @@ class MainBloc {
             ),
           );
         },
-       /* setUser: (event) async => _stateController.add(
-          MainBlocState.loaded(
-            userData: await userService.getUserById(event.userId),
-          ),
-        ),*/
+        openDetail: (event) {
+          openScreen1(event.context, event.route, event.uuid);
+          //метод берется с data-слоя
+          //userService.openScreen(event.context, event.route, event.uuid);
+        },
       );
     });
   }
@@ -59,5 +61,6 @@ class MainBlocState with _$MainBlocState {
 class MainBlocEvent with _$MainBlocEvent {
   const factory MainBlocEvent.init() = _MainInitEvent;
 
-  //const factory MainBlocEvent.setUser({required int userId}) = _MainSetEvent;
+  const factory MainBlocEvent.openDetail(
+      BuildContext context, String route, String uuid) = _MainOpenEvent;
 }

@@ -1,22 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:module_data/module_data.dart';
 import 'package:module_model/module_model.dart';
 
 
 
-class DummyUserService extends UserService {
-  /*@override
-  Future<UserData> getDefaultUser() async {
-    await Future.delayed(Duration(seconds: 1));
-    return UserData(id: 1, name: 'default');
-  }
+class DummyHotelService extends HotelService {
 
-  @override
-  Future<UserData> getUserById(int id) async {
-    await Future.delayed(Duration(seconds: 1));
-    return UserData(id: id, name: 'Specific User №${id}');
-  }
-*/
   @override
   Future<List<HotelData>> getHotelData() async {
     try {
@@ -32,4 +22,12 @@ class DummyUserService extends UserService {
       throw e.response!.statusCode.toString();
     }
   }
+
+  @override
+  void openScreen(BuildContext context,String route,String uuid) {
+    Navigator.of(context).pushNamed(route,
+        arguments: uuid);
+
+  }
+
 }

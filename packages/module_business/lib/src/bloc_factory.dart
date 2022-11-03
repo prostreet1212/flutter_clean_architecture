@@ -15,6 +15,6 @@ class BlocFactory {
   void initialize() {
     ServiceProvider.instance.initialize();
     _getIt.registerFactory<MainBloc>(
-            () => MainBloc(userService: ServiceProvider.instance.get<UserService>()));
+            () => MainBloc(userService: ServiceProvider.instance.get<HotelService>()));
   }
 }

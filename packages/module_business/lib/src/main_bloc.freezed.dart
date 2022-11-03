@@ -322,32 +322,41 @@ mixin _$MainBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(BuildContext context, String route, String uuid)
+        openDetail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(BuildContext context, String route, String uuid)?
+        openDetail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(BuildContext context, String route, String uuid)?
+        openDetail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MainInitEvent value) init,
+    required TResult Function(_MainOpenEvent value) openDetail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MainInitEvent value)? init,
+    TResult? Function(_MainOpenEvent value)? openDetail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MainInitEvent value)? init,
+    TResult Function(_MainOpenEvent value)? openDetail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -410,6 +419,8 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(BuildContext context, String route, String uuid)
+        openDetail,
   }) {
     return init();
   }
@@ -418,6 +429,8 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(BuildContext context, String route, String uuid)?
+        openDetail,
   }) {
     return init?.call();
   }
@@ -426,6 +439,8 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(BuildContext context, String route, String uuid)?
+        openDetail,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -438,6 +453,7 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MainInitEvent value) init,
+    required TResult Function(_MainOpenEvent value) openDetail,
   }) {
     return init(this);
   }
@@ -446,6 +462,7 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MainInitEvent value)? init,
+    TResult? Function(_MainOpenEvent value)? openDetail,
   }) {
     return init?.call(this);
   }
@@ -454,6 +471,7 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MainInitEvent value)? init,
+    TResult Function(_MainOpenEvent value)? openDetail,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -465,4 +483,160 @@ class _$_MainInitEvent implements _MainInitEvent {
 
 abstract class _MainInitEvent implements MainBlocEvent {
   const factory _MainInitEvent() = _$_MainInitEvent;
+}
+
+/// @nodoc
+abstract class _$$_MainOpenEventCopyWith<$Res> {
+  factory _$$_MainOpenEventCopyWith(
+          _$_MainOpenEvent value, $Res Function(_$_MainOpenEvent) then) =
+      __$$_MainOpenEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BuildContext context, String route, String uuid});
+}
+
+/// @nodoc
+class __$$_MainOpenEventCopyWithImpl<$Res>
+    extends _$MainBlocEventCopyWithImpl<$Res, _$_MainOpenEvent>
+    implements _$$_MainOpenEventCopyWith<$Res> {
+  __$$_MainOpenEventCopyWithImpl(
+      _$_MainOpenEvent _value, $Res Function(_$_MainOpenEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? context = null,
+    Object? route = null,
+    Object? uuid = null,
+  }) {
+    return _then(_$_MainOpenEvent(
+      null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
+      null == route
+          ? _value.route
+          : route // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_MainOpenEvent implements _MainOpenEvent {
+  const _$_MainOpenEvent(this.context, this.route, this.uuid);
+
+  @override
+  final BuildContext context;
+  @override
+  final String route;
+  @override
+  final String uuid;
+
+  @override
+  String toString() {
+    return 'MainBlocEvent.openDetail(context: $context, route: $route, uuid: $uuid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_MainOpenEvent &&
+            (identical(other.context, context) || other.context == context) &&
+            (identical(other.route, route) || other.route == route) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, context, route, uuid);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_MainOpenEventCopyWith<_$_MainOpenEvent> get copyWith =>
+      __$$_MainOpenEventCopyWithImpl<_$_MainOpenEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(BuildContext context, String route, String uuid)
+        openDetail,
+  }) {
+    return openDetail(context, route, uuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(BuildContext context, String route, String uuid)?
+        openDetail,
+  }) {
+    return openDetail?.call(context, route, uuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(BuildContext context, String route, String uuid)?
+        openDetail,
+    required TResult orElse(),
+  }) {
+    if (openDetail != null) {
+      return openDetail(context, route, uuid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MainInitEvent value) init,
+    required TResult Function(_MainOpenEvent value) openDetail,
+  }) {
+    return openDetail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MainInitEvent value)? init,
+    TResult? Function(_MainOpenEvent value)? openDetail,
+  }) {
+    return openDetail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MainInitEvent value)? init,
+    TResult Function(_MainOpenEvent value)? openDetail,
+    required TResult orElse(),
+  }) {
+    if (openDetail != null) {
+      return openDetail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MainOpenEvent implements MainBlocEvent {
+  const factory _MainOpenEvent(
+          final BuildContext context, final String route, final String uuid) =
+      _$_MainOpenEvent;
+
+  BuildContext get context;
+  String get route;
+  String get uuid;
+  @JsonKey(ignore: true)
+  _$$_MainOpenEventCopyWith<_$_MainOpenEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }

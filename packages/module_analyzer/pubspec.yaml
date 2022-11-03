@@ -1,4 +1,4 @@
-name: module_model
+name: module_analyzer
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -10,16 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  freezed: ^2.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  build_runner: ^2.3.2
-  json_serializable: ^6.5.4
-  module_analyzer:
-    path: ../module_analyzer
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

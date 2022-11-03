@@ -10,8 +10,8 @@ class ServiceProvider {
   static final instance = ServiceProvider();
 
   void initialize() {
-    _getIt.registerLazySingleton<UserService>(
-      () => DummyUserService(),
+    _getIt.registerLazySingleton<HotelService>(
+      () => DummyHotelService(),
     );
   }
 }
