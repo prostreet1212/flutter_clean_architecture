@@ -1,4 +1,4 @@
-include: package:flutter_lints/flutter.yaml
+#include: package:pedantic/analysis_options.yaml
 
 
 analyzer:
@@ -22,17 +22,16 @@ linter:
     avoid_print: false
     unawaited_futures: false
 
+
 dart_code_metrics:
   anti-patterns:
     - long-method
     - long-parameter-list
   metrics:
     lines-of-executable-code:10
+
   metrics_exclude:
     - test/**
   rules:
     - newline-before-return
     - no-empty-block
-
-
-

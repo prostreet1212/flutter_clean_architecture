@@ -11,7 +11,6 @@ class DummyHotelService extends HotelService {
   @override
   Future<List<HotelData>> getHotelData() async {
     try {
-
       var response = await Dio()
           .get('https://run.mocky.io/v3/ac888dc5-d193-4700-b12c-abb43e289301');
       var data = response.data;
