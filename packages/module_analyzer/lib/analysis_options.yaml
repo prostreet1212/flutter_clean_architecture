@@ -1,4 +1,4 @@
-#include: package:pedantic/analysis_options.yaml
+include: package:pedantic/analysis_options.yaml
 
 
 analyzer:
@@ -9,7 +9,7 @@ analyzer:
     todo: warning
     dead_code: error
   plugins:
-    -dart_code_metrics
+    - dart_code_metrics
 
   exclude:
     -analysis_options.yaml
@@ -22,16 +22,20 @@ linter:
     avoid_print: false
     unawaited_futures: false
 
-
 dart_code_metrics:
-  anti-patterns:
-    - long-method
-    - long-parameter-list
   metrics:
-    lines-of-executable-code:10
-
-  metrics_exclude:
+    cyclomatic-complexity: 20
+    number-of-parameters: 4
+    maximum-nesting-level: 5
+  metrics-exclude:
     - test/**
   rules:
     - newline-before-return
+    - no-boolean-literal-compare
     - no-empty-block
+    - prefer-trailing-comma
+    - prefer-conditional-expressions
+    - no-equal-then-else
+  anti-patterns:
+    - long-method
+    - long-parameter-list

@@ -27,7 +27,6 @@ class DummyHotelService extends HotelService {
   void openScreen(BuildContext context,String route,String uuid) {
     Navigator.of(context).pushNamed(route,
         arguments: uuid);
-
   }
 
 }
