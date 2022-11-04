@@ -1,3 +1,38 @@
+include: package:flutter_lints/flutter.yaml
+
+
+analyzer:
+  language:
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    todo: warning
+    dead_code: error
+  plugins:
+    -dart_code_metrics
+
+  exclude:
+    -analysis_options.yaml
+    - '**/*.g.dart'
+    - '**/*.freezed.dart'
+    - '**/*.config.dart'
+
+linter:
+  rules:
+    avoid_print: false
+    unawaited_futures: false
+
+dart_code_metrics:
+  anti-patterns:
+    - long-method
+    - long-parameter-list
+  metrics:
+    lines-of-executable-code:10
+  metrics_exclude:
+    - test/**
+  rules:
+    - newline-before-return
+    - no-empty-block
 
 
 

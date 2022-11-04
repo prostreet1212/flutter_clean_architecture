@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> {
               return MaterialPageRoute(builder: (context) {
                 return MyHomePage();
               });
+              break;
             case 'detail':
               return MaterialPageRoute(builder: (context) {
                 return DetailScreen(uuid: settings.arguments as String);
@@ -83,6 +84,7 @@ class MyHomePage extends StatelessWidget {
                   child: ListView.separated(
                     itemCount: state.hotelData.length,
                     itemBuilder: (context, index) {
+                      print('test analyzer');
                       return Card(
                         elevation: 3,
                         shape: RoundedRectangleBorder(

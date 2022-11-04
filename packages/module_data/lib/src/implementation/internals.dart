@@ -7,6 +7,7 @@ import 'package:module_model/module_model.dart';
 
 class DummyHotelService extends HotelService {
 
+
   @override
   Future<List<HotelData>> getHotelData() async {
     try {
