@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
               return MaterialPageRoute(builder: (context) {
                 return MyHomePage();
               });
-              break;
+
             case 'detail':
               return MaterialPageRoute(builder: (context) {
                 return DetailScreen(uuid: settings.arguments as String);
