@@ -31,16 +31,16 @@ class _MyAppState extends State<MyApp> {
           switch (settings.name) {
             case '/':
               return MaterialPageRoute(builder: (context) {
-                return MyHomePage();
+                return MyHomePage(mainBloc: _mainBloc,);
               });
-break;
+              break;
             case 'detail':
               return MaterialPageRoute(builder: (context) {
                 return DetailScreen(uuid: settings.arguments as String);
               });
             default:
               return MaterialPageRoute(builder: (context) {
-                return MyHomePage();
+                return MyHomePage(mainBloc: _mainBloc,);
               });
           }
         }),
@@ -61,7 +61,8 @@ break;
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  MainBloc mainBloc;
+  MyHomePage({Key? key,required this.mainBloc}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -114,13 +115,8 @@ class MyHomePage extends StatelessWidget {
                                           ElevatedButton(
                                             child: Text('Подробнее'),
                                             onPressed: () {
-                                              context.read<MainBloc>().add(
-                                                    MainBlocEvent.openDetail(
-                                                        context,
-                                                        'detail',
-                                                        state.hotelData[index]
-                                                            .uuid),
-                                                  );
+                                              String newUuid=mainBloc.changeUuid(state.hotelData[index].uuid);
+                                              Navigator.of(context).pushNamed('detail', arguments: newUuid);
                                             },
                                           )
                                         ],

@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:module_data/module_data.dart';
 import 'package:module_model/module_model.dart';
 
-
-
 class DummyHotelService extends HotelService {
-
-
   @override
   Future<List<HotelData>> getHotelData() async {
     try {
@@ -21,12 +17,6 @@ class DummyHotelService extends HotelService {
     } on DioError catch (e) {
       throw e.response!.statusCode.toString();
     }
-  }
-
-  @override
-  void openScreen(BuildContext context,String route,String uuid) {
-    Navigator.of(context).pushNamed(route,
-        arguments: uuid);
   }
 
 }

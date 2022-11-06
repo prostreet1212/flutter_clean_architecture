@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:module_business/utils/utils.dart';
 import 'package:module_data/module_data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:async';
@@ -13,6 +12,11 @@ class MainBloc {
   final StreamController<MainBlocEvent> _eventsController = StreamController();
   final StreamController<MainBlocState> _stateController =
       StreamController.broadcast();
+
+  String changeUuid(String uuid){
+    String newUuid='uuid: ${uuid}';
+    return newUuid;
+  }
 
   Stream<MainBlocState> get state => _stateController.stream;
 
@@ -28,11 +32,6 @@ class MainBloc {
               hotelData: await userService.getHotelData(),
             ),
           );
-        },
-        openDetail: (event) {
-          openScreen1(event.context, event.route, event.uuid);
-          //метод берется с data-слоя
-          //userService.openScreen(event.context, event.route, event.uuid);
         },
       );
     });
@@ -60,7 +59,4 @@ class MainBlocState with _$MainBlocState {
 @freezed
 class MainBlocEvent with _$MainBlocEvent {
   const factory MainBlocEvent.init() = _MainInitEvent;
-
-  const factory MainBlocEvent.openDetail(
-      BuildContext context, String route, String uuid) = _MainOpenEvent;
 }
