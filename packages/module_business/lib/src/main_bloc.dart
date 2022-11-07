@@ -32,8 +32,14 @@ class MainBloc {
               hotelData: await userService.getHotelData(),
             ),
           );
-        },
-      );
+
+        }, changeUuid: (event) {
+          _stateController.add(
+            MainBlocState.getNewUuid(
+                uuid: changeUuid(event.uuid))
+          );
+      });
+
     });
   }
 
@@ -54,9 +60,17 @@ class MainBlocState with _$MainBlocState {
 
   const factory MainBlocState.loaded({required List<HotelData> hotelData}) =
       MainLoadedState;
+
+  const factory MainBlocState.getNewUuid({required String uuid})=MainNewUuidState;
+
+ 
 }
 
 @freezed
 class MainBlocEvent with _$MainBlocEvent {
   const factory MainBlocEvent.init() = _MainInitEvent;
+
+  const factory MainBlocEvent.changeUuid({required String uuid})=_ChangeUuidEvent;
+
+
 }

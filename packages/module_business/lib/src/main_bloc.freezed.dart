@@ -20,18 +20,21 @@ mixin _$MainBlocState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<HotelData> hotelData) loaded,
+    required TResult Function(String uuid) getNewUuid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<HotelData> hotelData)? loaded,
+    TResult? Function(String uuid)? getNewUuid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<HotelData> hotelData)? loaded,
+    TResult Function(String uuid)? getNewUuid,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$MainBlocState {
   TResult map<TResult extends Object?>({
     required TResult Function(MainLoadingState value) loading,
     required TResult Function(MainLoadedState value) loaded,
+    required TResult Function(MainNewUuidState value) getNewUuid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainLoadingState value)? loading,
     TResult? Function(MainLoadedState value)? loaded,
+    TResult? Function(MainNewUuidState value)? getNewUuid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainLoadingState value)? loading,
     TResult Function(MainLoadedState value)? loaded,
+    TResult Function(MainNewUuidState value)? getNewUuid,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$MainLoadingState implements MainLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<HotelData> hotelData) loaded,
+    required TResult Function(String uuid) getNewUuid,
   }) {
     return loading();
   }
@@ -123,6 +130,7 @@ class _$MainLoadingState implements MainLoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<HotelData> hotelData)? loaded,
+    TResult? Function(String uuid)? getNewUuid,
   }) {
     return loading?.call();
   }
@@ -132,6 +140,7 @@ class _$MainLoadingState implements MainLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<HotelData> hotelData)? loaded,
+    TResult Function(String uuid)? getNewUuid,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -145,6 +154,7 @@ class _$MainLoadingState implements MainLoadingState {
   TResult map<TResult extends Object?>({
     required TResult Function(MainLoadingState value) loading,
     required TResult Function(MainLoadedState value) loaded,
+    required TResult Function(MainNewUuidState value) getNewUuid,
   }) {
     return loading(this);
   }
@@ -154,6 +164,7 @@ class _$MainLoadingState implements MainLoadingState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainLoadingState value)? loading,
     TResult? Function(MainLoadedState value)? loaded,
+    TResult? Function(MainNewUuidState value)? getNewUuid,
   }) {
     return loading?.call(this);
   }
@@ -163,6 +174,7 @@ class _$MainLoadingState implements MainLoadingState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainLoadingState value)? loading,
     TResult Function(MainLoadedState value)? loaded,
+    TResult Function(MainNewUuidState value)? getNewUuid,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -249,6 +261,7 @@ class _$MainLoadedState implements MainLoadedState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<HotelData> hotelData) loaded,
+    required TResult Function(String uuid) getNewUuid,
   }) {
     return loaded(hotelData);
   }
@@ -258,6 +271,7 @@ class _$MainLoadedState implements MainLoadedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<HotelData> hotelData)? loaded,
+    TResult? Function(String uuid)? getNewUuid,
   }) {
     return loaded?.call(hotelData);
   }
@@ -267,6 +281,7 @@ class _$MainLoadedState implements MainLoadedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<HotelData> hotelData)? loaded,
+    TResult Function(String uuid)? getNewUuid,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -280,6 +295,7 @@ class _$MainLoadedState implements MainLoadedState {
   TResult map<TResult extends Object?>({
     required TResult Function(MainLoadingState value) loading,
     required TResult Function(MainLoadedState value) loaded,
+    required TResult Function(MainNewUuidState value) getNewUuid,
   }) {
     return loaded(this);
   }
@@ -289,6 +305,7 @@ class _$MainLoadedState implements MainLoadedState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MainLoadingState value)? loading,
     TResult? Function(MainLoadedState value)? loaded,
+    TResult? Function(MainNewUuidState value)? getNewUuid,
   }) {
     return loaded?.call(this);
   }
@@ -298,6 +315,7 @@ class _$MainLoadedState implements MainLoadedState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MainLoadingState value)? loading,
     TResult Function(MainLoadedState value)? loaded,
+    TResult Function(MainNewUuidState value)? getNewUuid,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -318,36 +336,182 @@ abstract class MainLoadedState implements MainBlocState {
 }
 
 /// @nodoc
+abstract class _$$MainNewUuidStateCopyWith<$Res> {
+  factory _$$MainNewUuidStateCopyWith(
+          _$MainNewUuidState value, $Res Function(_$MainNewUuidState) then) =
+      __$$MainNewUuidStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String uuid});
+}
+
+/// @nodoc
+class __$$MainNewUuidStateCopyWithImpl<$Res>
+    extends _$MainBlocStateCopyWithImpl<$Res, _$MainNewUuidState>
+    implements _$$MainNewUuidStateCopyWith<$Res> {
+  __$$MainNewUuidStateCopyWithImpl(
+      _$MainNewUuidState _value, $Res Function(_$MainNewUuidState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uuid = null,
+  }) {
+    return _then(_$MainNewUuidState(
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MainNewUuidState implements MainNewUuidState {
+  const _$MainNewUuidState({required this.uuid});
+
+  @override
+  final String uuid;
+
+  @override
+  String toString() {
+    return 'MainBlocState.getNewUuid(uuid: $uuid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MainNewUuidState &&
+            (identical(other.uuid, uuid) || other.uuid == uuid));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, uuid);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MainNewUuidStateCopyWith<_$MainNewUuidState> get copyWith =>
+      __$$MainNewUuidStateCopyWithImpl<_$MainNewUuidState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<HotelData> hotelData) loaded,
+    required TResult Function(String uuid) getNewUuid,
+  }) {
+    return getNewUuid(uuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<HotelData> hotelData)? loaded,
+    TResult? Function(String uuid)? getNewUuid,
+  }) {
+    return getNewUuid?.call(uuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<HotelData> hotelData)? loaded,
+    TResult Function(String uuid)? getNewUuid,
+    required TResult orElse(),
+  }) {
+    if (getNewUuid != null) {
+      return getNewUuid(uuid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MainLoadingState value) loading,
+    required TResult Function(MainLoadedState value) loaded,
+    required TResult Function(MainNewUuidState value) getNewUuid,
+  }) {
+    return getNewUuid(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(MainLoadingState value)? loading,
+    TResult? Function(MainLoadedState value)? loaded,
+    TResult? Function(MainNewUuidState value)? getNewUuid,
+  }) {
+    return getNewUuid?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MainLoadingState value)? loading,
+    TResult Function(MainLoadedState value)? loaded,
+    TResult Function(MainNewUuidState value)? getNewUuid,
+    required TResult orElse(),
+  }) {
+    if (getNewUuid != null) {
+      return getNewUuid(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MainNewUuidState implements MainBlocState {
+  const factory MainNewUuidState({required final String uuid}) =
+      _$MainNewUuidState;
+
+  String get uuid;
+  @JsonKey(ignore: true)
+  _$$MainNewUuidStateCopyWith<_$MainNewUuidState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$MainBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(String uuid) changeUuid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(String uuid)? changeUuid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(String uuid)? changeUuid,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MainInitEvent value) init,
+    required TResult Function(_ChangeUuidEvent value) changeUuid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MainInitEvent value)? init,
+    TResult? Function(_ChangeUuidEvent value)? changeUuid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MainInitEvent value)? init,
+    TResult Function(_ChangeUuidEvent value)? changeUuid,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -410,6 +574,7 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
+    required TResult Function(String uuid) changeUuid,
   }) {
     return init();
   }
@@ -418,6 +583,7 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
+    TResult? Function(String uuid)? changeUuid,
   }) {
     return init?.call();
   }
@@ -426,6 +592,7 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(String uuid)? changeUuid,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -438,6 +605,7 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_MainInitEvent value) init,
+    required TResult Function(_ChangeUuidEvent value) changeUuid,
   }) {
     return init(this);
   }
@@ -446,6 +614,7 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_MainInitEvent value)? init,
+    TResult? Function(_ChangeUuidEvent value)? changeUuid,
   }) {
     return init?.call(this);
   }
@@ -454,6 +623,7 @@ class _$_MainInitEvent implements _MainInitEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MainInitEvent value)? init,
+    TResult Function(_ChangeUuidEvent value)? changeUuid,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -465,4 +635,138 @@ class _$_MainInitEvent implements _MainInitEvent {
 
 abstract class _MainInitEvent implements MainBlocEvent {
   const factory _MainInitEvent() = _$_MainInitEvent;
+}
+
+/// @nodoc
+abstract class _$$_ChangeUuidEventCopyWith<$Res> {
+  factory _$$_ChangeUuidEventCopyWith(
+          _$_ChangeUuidEvent value, $Res Function(_$_ChangeUuidEvent) then) =
+      __$$_ChangeUuidEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String uuid});
+}
+
+/// @nodoc
+class __$$_ChangeUuidEventCopyWithImpl<$Res>
+    extends _$MainBlocEventCopyWithImpl<$Res, _$_ChangeUuidEvent>
+    implements _$$_ChangeUuidEventCopyWith<$Res> {
+  __$$_ChangeUuidEventCopyWithImpl(
+      _$_ChangeUuidEvent _value, $Res Function(_$_ChangeUuidEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? uuid = null,
+  }) {
+    return _then(_$_ChangeUuidEvent(
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeUuidEvent implements _ChangeUuidEvent {
+  const _$_ChangeUuidEvent({required this.uuid});
+
+  @override
+  final String uuid;
+
+  @override
+  String toString() {
+    return 'MainBlocEvent.changeUuid(uuid: $uuid)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeUuidEvent &&
+            (identical(other.uuid, uuid) || other.uuid == uuid));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, uuid);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeUuidEventCopyWith<_$_ChangeUuidEvent> get copyWith =>
+      __$$_ChangeUuidEventCopyWithImpl<_$_ChangeUuidEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String uuid) changeUuid,
+  }) {
+    return changeUuid(uuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String uuid)? changeUuid,
+  }) {
+    return changeUuid?.call(uuid);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String uuid)? changeUuid,
+    required TResult orElse(),
+  }) {
+    if (changeUuid != null) {
+      return changeUuid(uuid);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MainInitEvent value) init,
+    required TResult Function(_ChangeUuidEvent value) changeUuid,
+  }) {
+    return changeUuid(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_MainInitEvent value)? init,
+    TResult? Function(_ChangeUuidEvent value)? changeUuid,
+  }) {
+    return changeUuid?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MainInitEvent value)? init,
+    TResult Function(_ChangeUuidEvent value)? changeUuid,
+    required TResult orElse(),
+  }) {
+    if (changeUuid != null) {
+      return changeUuid(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeUuidEvent implements MainBlocEvent {
+  const factory _ChangeUuidEvent({required final String uuid}) =
+      _$_ChangeUuidEvent;
+
+  String get uuid;
+  @JsonKey(ignore: true)
+  _$$_ChangeUuidEventCopyWith<_$_ChangeUuidEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }

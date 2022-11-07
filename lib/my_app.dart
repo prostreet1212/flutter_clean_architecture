@@ -76,10 +76,12 @@ class MyHomePage extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final state = snapshot.data;
-              return state!.map<Widget>(
-                loading: (_) => Center(
+              return state!.map(
+                loading: (_) {
+                  return
+                 Center(
                   child: CircularProgressIndicator(),
-                ),
+                );},
                 loaded: (state) => Padding(
                   padding: EdgeInsets.all(8),
                   child: ListView.separated(
@@ -115,8 +117,7 @@ class MyHomePage extends StatelessWidget {
                                           ElevatedButton(
                                             child: Text('Подробнее'),
                                             onPressed: () {
-                                              String newUuid=mainBloc.changeUuid(state.hotelData[index].uuid);
-                                              Navigator.of(context).pushNamed('detail', arguments: newUuid);
+                                             mainBloc.add(MainBlocEvent.changeUuid(uuid: state.hotelData[index].uuid));
                                             },
                                           )
                                         ],
@@ -135,11 +136,15 @@ class MyHomePage extends StatelessWidget {
                     },
                   ),
                 ),
+                getNewUuid: (MainNewUuidState value) {
+                  Navigator.of(context).pushNamed('detail', arguments: value.uuid);
+                  return Container();
+                },
               );
             } else {
               return CircularProgressIndicator();
             }
-          }),
+          },),
     );
   }
 }
